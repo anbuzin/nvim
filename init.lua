@@ -1,9 +1,11 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.g.have_nerd_font = true
 
 -- Options
 vim.opt.showmode = false
+vim.opt.mouse = "a"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -42,10 +44,10 @@ vim.opt.updatetime = 50
 
 
 -- Remaps
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore" })
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -53,14 +55,16 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("x", "<leader>p", "\"_dp")
+vim.keymap.set({ "n", "v" }, "<leader>p", "\"_dp", { desc = "Paste without overriding yank buffer" })
 
-vim.keymap.set("n", "<leader>d", "\"_dp")
-vim.keymap.set("v", "<leader>d", "\"_dp")
+vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d", { desc = "Delete without overriding yank buffer" })
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank selected to clipboard register" })
+vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank until the end of the line to clipboard register" })
 
 vim.keymap.set("n", "Q", "<nop>")
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = "Replace all occurrences" })
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Clear highlights on search when pressing <Esc> in normal mode
 
@@ -122,6 +126,7 @@ require("lazy").setup({
         { 'neovim/nvim-lspconfig' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/nvim-cmp' },
+        { "edgedb/edgedb-vim" },
         {
             "rose-pine/neovim",
             name = "rose-pine",
@@ -136,13 +141,22 @@ require("lazy").setup({
             init = function()
                 vim.cmd.colorscheme('rose-pine')
             end
-        }
+        },
         -- {
         -- 	"catppuccin/nvim",
         -- 	name = "catppuccin",
         -- 	priority = 1000,
         --     init = function ()
-        --         vim.cmd.colorscheme('catppuccin')
+        --         vim.cmd.colorscheme('catppuccin-mocha')
+        --     end
+        -- },
+        -- {
+        --     "folke/tokyonight.nvim",
+        --     name = "tokyonight",
+        --     lazy = false,
+        --     priority = 1000,
+        --     init = function()
+        --         vim.cmd.colorscheme("tokyonight-night")
         --     end
         -- },
     },
