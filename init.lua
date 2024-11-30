@@ -55,7 +55,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set({ "n", "v" }, "<leader>p", "\"_dp", { desc = "Paste without overriding yank buffer" })
+vim.keymap.set("v", "<leader>p", "\"_dhp", { desc = "Paste without overriding yank buffer" })
 
 vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d", { desc = "Delete without overriding yank buffer" })
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank selected to clipboard register" })
