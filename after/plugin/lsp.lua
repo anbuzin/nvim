@@ -81,6 +81,16 @@ require('mason-lspconfig').setup({
     },
 })
 
+require('lspconfig').sourcekit.setup({
+    capabilities = {
+        workspace = {
+            didChangeWatchedFiles = {
+                dynamicRegistration = true,
+            },
+        },
+    },
+})
+
 local cmp = require('cmp')
 
 cmp.setup({
