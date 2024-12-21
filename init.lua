@@ -4,11 +4,13 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 -- Options
+
 vim.opt.showmode = false
 vim.opt.mouse = "a"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
+-- vim.opt.colorcolumn = "72"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -46,14 +48,17 @@ vim.opt.updatetime = 50
 -- Remaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore" })
 
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>", { desc = "Move to the next quickfix item" })
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>", { desc = "Move to the previous quickfix item" })
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Go [d]own half a page and center" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Go [u]p half a page and center" })
 
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "n", "nzzzv", { desc = "Find next, open fold and center" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Find previous, open fold and center" })
 
 vim.keymap.set("v", "<leader>p", "\"_dhp", { desc = "Paste without overriding yank buffer" })
 
@@ -61,12 +66,12 @@ vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d", { desc = "Delete without overr
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank selected to clipboard register" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank until the end of the line to clipboard register" })
 
-vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "Q", "<nop>", { desc = "Don't go there" })
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { desc = "Replace all occurrences" })
 
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>') -- Clear highlights on search when pressing <Esc> in normal mode
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear highlights" })
 
 
 -- Highlight when yanking (copying) text
