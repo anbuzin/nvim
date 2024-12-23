@@ -73,7 +73,7 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = "Clear highlights" })
 
-
+-- Terminal settings
 vim.keymap.set("n", "<leader>st", function()
     vim.cmd.vnew()
     vim.cmd.term()
@@ -82,6 +82,15 @@ vim.keymap.set("n", "<leader>st", function()
 end, { desc = "Open a [S]mall [T]erminal" })
 
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit to normal mode in terminal" })
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    desc = "Remove line numbers in terminal",
+    group = vim.api.nvim_create_augroup("term-no-line-numbers", { clear = true }),
+    callback = function()
+        vim.opt.relativenumber = false
+        vim.opt.number = false
+    end,
+})
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
