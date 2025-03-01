@@ -77,7 +77,7 @@ require('mason-lspconfig').setup({
                     "--fallback-style=webkit"
                 }
             }
-        end
+        end,
     },
 })
 

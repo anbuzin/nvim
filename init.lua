@@ -48,8 +48,8 @@ vim.opt.updatetime = 50
 -- Remaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore" })
 
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>", { desc = "Move to the next quickfix item" })
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>", { desc = "Move to the previous quickfix item" })
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz", { desc = "Move to the next quickfix item" })
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz", { desc = "Move to the previous quickfix item" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
@@ -131,7 +131,6 @@ require("lazy").setup({
         { 'neovim/nvim-lspconfig' },
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/nvim-cmp' },
-        { "edgedb/edgedb-vim" },
         {
             "rose-pine/neovim",
             name = "rose-pine",
@@ -164,6 +163,13 @@ require("lazy").setup({
         --         vim.cmd.colorscheme("tokyonight-night")
         --     end
         -- },
+        -- {
+        --     dir = "~/local/resources/plugins/gel-query.nvim", init = function ()
+        --         require("gel-query")
+        --     end
+        -- },
+        -- { "deepbuzin/present.nvim" },
+        { "deepbuzin/gel-query.nvim" }
     },
     -- colorscheme that will be used when installing plugins.
     install = { colorscheme = { "habamax" } },
