@@ -146,30 +146,7 @@ require("lazy").setup({
                 vim.cmd.colorscheme('rose-pine')
             end
         },
-        -- {
-        -- 	"catppuccin/nvim",
-        -- 	name = "catppuccin",
-        -- 	priority = 1000,
-        --     init = function ()
-        --         vim.cmd.colorscheme('catppuccin-mocha')
-        --     end
-        -- },
-        -- {
-        --     "folke/tokyonight.nvim",
-        --     name = "tokyonight",
-        --     lazy = false,
-        --     priority = 1000,
-        --     init = function()
-        --         vim.cmd.colorscheme("tokyonight-night")
-        --     end
-        -- },
-        -- {
-        --     dir = "~/local/resources/plugins/gel-query.nvim", init = function ()
-        --         require("gel-query")
-        --     end
-        -- },
-        -- { "deepbuzin/present.nvim" },
-        { "deepbuzin/gel-query.nvim" }
+        { "anbuzin/gel-query.nvim" }
     },
     -- colorscheme that will be used when installing plugins.
     install = { colorscheme = { "habamax" } },
