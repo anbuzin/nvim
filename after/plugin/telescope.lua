@@ -20,20 +20,20 @@
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
-	-- You can put your default mappings / updates / etc. in here
-	--  All the info you're looking for is in `:help telescope.setup()`
-	--
-	-- defaults = {
-	--   mappings = {
-	--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-	--   },
-	-- },
-	-- pickers = {}
-	extensions = {
-		['ui-select'] = {
-			require('telescope.themes').get_dropdown(),
-		},
-	},
+    -- You can put your default mappings / updates / etc. in here
+    --  All the info you're looking for is in `:help telescope.setup()`
+    --
+    -- defaults = {
+    --   mappings = {
+    --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+    --   },
+    -- },
+    -- pickers = {}
+    extensions = {
+        ['ui-select'] = {
+            require('telescope.themes').get_dropdown(),
+        },
+    },
 }
 
 -- Enable Telescope extensions if they are installed
@@ -53,7 +53,14 @@ vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' }
 vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
+vim.keymap.set('n', '<leader>sfh', function()
+    require('telescope.builtin').find_files({
+        hidden = true,
+        no_ignore = true,
+    })
+end, { desc = "[S]earch [F]iles, including [H]idden" })
+
 -- Shortcut for searching your Neovim configuration files
 vim.keymap.set('n', '<leader>sn', function()
-	builtin.find_files { cwd = vim.fn.stdpath 'config' }
+    builtin.find_files { cwd = vim.fn.stdpath 'config' }
 end, { desc = '[S]earch [N]eovim files' })

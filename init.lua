@@ -132,21 +132,33 @@ require("lazy").setup({
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/nvim-cmp' },
         {
-            "rose-pine/neovim",
-            name = "rose-pine",
+            "catppuccin/nvim",
+            name = "catppuccin",
             priority = 1000,
             opts = {
-                styles = {
-                    bold = true,
-                    italic = false,
-                    transparency = true,
-                },
+                flavour="mocha",
+                transparent_background=true,
             },
             init = function()
-                vim.cmd.colorscheme('rose-pine')
+                vim.cmd.colorscheme('catppuccin')
             end
         },
-        { "anbuzin/gel-query.nvim" }
+        -- {
+        --     "rose-pine/neovim",
+        --     name = "rose-pine",
+        --     priority = 1000,
+        --     opts = {
+        --         styles = {
+        --             bold = true,
+        --             italic = true,
+        --             transparency = true,
+        --         },
+        --     },
+        --     init = function()
+        --         vim.cmd.colorscheme('rose-pine')
+        --     end
+        -- },
+        -- { "anbuzin/gel-query.nvim" }
     },
     -- colorscheme that will be used when installing plugins.
     install = { colorscheme = { "habamax" } },
