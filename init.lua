@@ -136,29 +136,38 @@ require("lazy").setup({
             name = "catppuccin",
             priority = 1000,
             opts = {
-                flavour="mocha",
-                transparent_background=true,
+                flavour = "mocha",
+                transparent_background = true,
             },
             init = function()
                 vim.cmd.colorscheme('catppuccin')
             end
         },
-        -- {
-        --     "rose-pine/neovim",
-        --     name = "rose-pine",
-        --     priority = 1000,
-        --     opts = {
-        --         styles = {
-        --             bold = true,
-        --             italic = true,
-        --             transparency = true,
-        --         },
-        --     },
-        --     init = function()
-        --         vim.cmd.colorscheme('rose-pine')
-        --     end
-        -- },
-        -- { "anbuzin/gel-query.nvim" }
+        {
+            "yetone/avante.nvim",
+            build = "make BUILD_FROM_SOURCE=true",
+            event = "VeryLazy",
+            version = false,
+            ---@module 'avante'
+            ---@type avante.Config
+            opts = {
+                provider = "claude",
+            },
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                "MunifTanjim/nui.nvim",
+                "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+                "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
+                "folke/snacks.nvim",             -- for input provider snacks
+                {
+                    'MeanderingProgrammer/render-markdown.nvim',
+                    opts = {
+                        file_types = { "markdown", "Avante" },
+                    },
+                    ft = { "markdown", "Avante" },
+                },
+            },
+        }
     },
     -- colorscheme that will be used when installing plugins.
     install = { colorscheme = { "habamax" } },
