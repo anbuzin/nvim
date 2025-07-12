@@ -126,6 +126,7 @@ require("lazy").setup({
         { "nvim-treesitter/nvim-treesitter",  build = ":TSUpdate" },
         { "mbbill/undotree" },
         { "tpope/vim-fugitive" },
+        { "lewis6991/gitsigns.nvim" },
         { 'williamboman/mason.nvim' },
         { 'williamboman/mason-lspconfig.nvim' },
         { 'neovim/nvim-lspconfig' },
