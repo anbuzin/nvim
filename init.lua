@@ -44,7 +44,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.g.netrw_liststyle = 3 -- Tree listing
+-- vim.g.netrw_liststyle = 3 -- Tree listing
 
 -- Remaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore" })
@@ -140,6 +140,9 @@ require("lazy").setup({
             opts = {
                 flavour = "mocha",
                 transparent_background = true,
+                float = {
+                    transparent = true, -- enable transparent floating windows
+                },
             },
             init = function()
                 vim.cmd.colorscheme('catppuccin')
