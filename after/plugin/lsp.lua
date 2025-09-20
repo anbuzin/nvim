@@ -1,6 +1,9 @@
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
-local lspconfig_defaults = require('lspconfig').util.default_config
+-- local lspconfig_defaults = vim.lsp.config.default_config
+
+local lspconfig_defaults = require("lspconfig").util.default_config
+
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
     'force',
     lspconfig_defaults.capabilities,
@@ -67,21 +70,21 @@ require('mason-lspconfig').setup({
     ensure_installed = { "lua_ls", "ts_ls", "eslint", "clangd", "ruff" },
     handlers = {
         function(server_name)
-            require('lspconfig')[server_name].setup({})
+            vim.lsp.config(server_name, {})
         end,
 
         clangd = function()
-            require("lspconfig").clangd.setup {
+            vim.lsp.config('clangd', {
                 cmd = {
                     "clangd",
                     "--fallback-style=webkit"
                 }
-            }
+            })
         end,
     },
 })
 
-require('lspconfig').sourcekit.setup({
+vim.lsp.config("sourcekit", {
     capabilities = {
         workspace = {
             didChangeWatchedFiles = {
@@ -91,7 +94,7 @@ require('lspconfig').sourcekit.setup({
     },
 })
 
-require('lspconfig').jedi_language_server.setup {}
+vim.lsp.config("jedi_language_server", {})
 
 local cmp = require('cmp')
 
