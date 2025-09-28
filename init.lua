@@ -44,8 +44,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
--- vim.g.netrw_liststyle = 3 -- Tree listing
-
 -- Remaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore" })
 
