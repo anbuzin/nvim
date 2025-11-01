@@ -60,6 +60,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
         map('K', vim.lsp.buf.hover, 'Hover')
 
         map('<leader>ff', vim.lsp.buf.format, '[F]ormat [F]ile')
+
+        map('<leader>e', vim.diagnostic.open_float, 'Show diagnostic [E]rror')
     end,
 })
 
