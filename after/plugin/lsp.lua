@@ -69,7 +69,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     -- Replace the language servers listed here
     -- with the ones you want to install
-    ensure_installed = { "lua_ls", "ts_ls", "eslint", "clangd", "ruff" },
+    ensure_installed = { "lua_ls", "ts_ls", "eslint", "clangd", "ruff", "basedpyright"},
     handlers = {
         function(server_name)
             vim.lsp.config(server_name, {})
@@ -96,7 +96,7 @@ vim.lsp.config("sourcekit", {
     },
 })
 
-vim.lsp.config("jedi_language_server", {})
+-- vim.lsp.config("jedi_language_server", {})
 
 local cmp = require('cmp')
 
