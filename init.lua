@@ -132,20 +132,6 @@ require("lazy").setup({
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'hrsh7th/nvim-cmp' },
         {
-            "zbirenbaum/copilot.lua",
-            cmd = "Copilot",
-            event = "InsertEnter",
-            opts = {
-                suggestion = { enabled = false },
-                panel = { enabled = false },
-            },
-        },
-        {
-            "zbirenbaum/copilot-cmp",
-            dependencies = "copilot.lua",
-            opts = {},
-        },
-        {
             "catppuccin/nvim",
             name = "catppuccin",
             priority = 1000,
