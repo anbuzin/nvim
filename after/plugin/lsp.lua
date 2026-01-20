@@ -1,6 +1,5 @@
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
--- local lspconfig_defaults = vim.lsp.config.default_config
 
 local lspconfig_defaults = require("lspconfig").util.default_config
 
@@ -57,11 +56,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         --  For example, in C this would take you to the header.
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-        map('K', vim.lsp.buf.hover, 'Hover')
-
         map('<leader>ff', vim.lsp.buf.format, '[F]ormat [F]ile')
-
-        map('<leader>e', vim.diagnostic.open_float, 'Show diagnostic [E]rror')
     end,
 })
 
@@ -82,7 +77,7 @@ require('mason-lspconfig').setup({
                     "--fallback-style=webkit"
                 }
             })
-        end,
+       end,
     },
 })
 
